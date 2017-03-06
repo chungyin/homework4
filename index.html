@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> homework4 Chung Yin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1> Did people in your age married?</h1>
+    <p>How old are you?
+        <br><input id="age" placeholder="enter your age here"></p>
+    <p>Gender<select id="gender">
+        <option value="choose">Choose below</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        </select></p>
+    <button type="button" id="go" onclick="myFunction()">Let See!</button>
+    <input id="percentage">
+
+    <script>
+        $(function() { // Routine format; put all your jQuery initialisation inside
+            $('#go').click(function() { // Set the mouse click event hander for element "#calculate"
+                // Normal Javascript here
+                // Do whatever you want
+                var age = $('#age').val();
+
+                var percentage = age;
+                $('#percentage').val(percentage);
+            });
+        }); // Routine format; put all your jQuery initialisation inside
+    </script>
+
+</body>
+
+</html>
