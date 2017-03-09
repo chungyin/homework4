@@ -10,40 +10,69 @@
     <h1> Did people in your age married?</h1>
     <p>How old are you?
         <br><select id="age">
-        <option value="none" id="none">Choose below</option>
-        <option value="0-15" id="below15">0-15</option>
-        <option value="15-19" id="below20">15-19</option>
-        <option value="20-24" id="below25">20-24</option>
-        <option value="25-29" id="below30">25-29</option>
-        <option value="30-34" id="below35">30-34</option>
-        <option value="35-39" id="below40">35-39</option>
-        <option value="40-44" id="below45">40-45</option>
-        <option value="45-49" id="below50">45-49</option>
-        <option value="50+" id="over50">50+</option>
+        <option value="choose">Choose below</option>
+        <option value="none">0-15</option>
+        <option value="15-19">15-19</option>
+        <option value="20-24">20-24</option>
+        <option value="25-29">25-29</option>
+        <option value="30-34">30-34</option>
+        <option value="35-39">35-39</option>
+        <option value="40-44">40-45</option>
+        <option value="45-49">45-49</option>
+        <option value="50+">50+</option>
         </select>
         <p>Gender<select id="gender"> <br>
-        <option value="choose" id="none">Choose below</option>
-        <option value="Female" id="female">Female</option>
-        <option value="Male" id="male">Male</option>
+        <option value="choose">Choose below</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
         </select></p>
         <button type="button" id="go" onclick="myFunction()">Let See!</button> <br>
-        <below15>You are not allowed to get married!</below15> <br>
-        <mbelow20>99.6%</mbelow20>
-        <fbelow20>99.5%</fbelow20> <br>
-        <mbelow25>97.4%</mbelow25>
-        <fbelow25>95.3%</fbelow25> <br>
-        <mbelow30>83.2%</mbelow30>
-        <fbelow30>74%</fbelow30> <br>
-        <mbelow35>49.4%</mbelow35>
-        <fbelow35>37.4%</fbelow35> <br>
-        <mbelow40>28.7%</mbelow40>
-        <fbelow40>22.3%</fbelow40> <br>
-        <mbelow45>20.4%</mbelow45>
-        <fbelow45>16.6%</fbelow45> <br>
-        <mbelow50>16%</mbelow50>
-        <fbelow50>15.2%</fbelow50> <br>
-        <mover50>7.7%</mover50>
-        <fover50>7.6%</fover50> <br>
+        <p class="none">You are not allowed to get married!</p>
+        <p class="Male 15-19">99.6%</p>
+        <p class="Female 15-19">99.5%</p>
+        <p class="Male 20-24">97.4%</p>
+        <p class="Female 20-24">95.3%</p>
+        <p class="Male 25-29">83.2%</p>
+        <p class="Female 25-29">74%</p>
+        <p class="Male 30-34">49.4%</p>
+        <p class="Female 30-34">37.4%</p>
+        <p class="Male 35-39">28.7%</p>
+        <p class="Female 35-39">22.3%</p>
+        <p class="Male 40-44">20.4%</p>
+        <p class="Female 40-44">16.6%</p>
+        <p class="Male 45-49">16%</p>
+        <p class="Female 45-49">15.2%</p>
+        <p class="Male 50+">7.7%</p>
+        <p class="Female 50+">7.6%</p>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("select").change(function() {
+                    $(this).find("option:selected").each(function() {
+                        var optionValue = $(this).attr("value");
+                        if (optionValue) {
+                            $(".Female").not("." + optionValue).hide();
+                            $("." + optionValue).show();
+                        } else {
+                            $(".Female").hide();
+                        }
+                    });
+                }).change();
+
+                $("select").change(function() {
+                    $(this).find("option:selected").each(function() {
+                        var optionValue = $(this).attr("value");
+                        if (optionValue) {
+                            $(".Male").not("." + optionValue).hide();
+                            $("." + optionValue).show();
+                        } else {
+                            $(".Male").hide();
+                        }
+                    });
+                }).change();
+
+            });
+        </script>
+
         <script>
             $(function() {
                 var showGraph = false;
