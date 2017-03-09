@@ -9,27 +9,237 @@
 <body>
     <h1> Did people in your age married?</h1>
     <p>How old are you?
-        <br><input id="age" placeholder="enter your age here"></p>
-    <p>Gender<select id="gender">
-        <option value="choose">Choose below</option>
-        <option value="Female">Female</option>
-        <option value="Male">Male</option>
+        <br><select id="age">
+        <option value="none" id="none">Choose below</option>
+        <option value="0-15" id="below15">0-15</option>
+        <option value="15-19" id="below20">15-19</option>
+        <option value="20-24" id="below25">20-24</option>
+        <option value="25-29" id="below30">25-29</option>
+        <option value="30-34" id="below35">30-34</option>
+        <option value="35-39" id="below40">35-39</option>
+        <option value="40-44" id="below45">40-45</option>
+        <option value="45-49" id="below50">45-49</option>
+        <option value="50+" id="over50">50+</option>
+        </select>
+        <p>Gender<select id="gender"> <br>
+        <option value="choose" id="none">Choose below</option>
+        <option value="Female" id="female">Female</option>
+        <option value="Male" id="male">Male</option>
         </select></p>
-    <button type="button" id="go" onclick="myFunction()">Let See!</button>
-    <input id="percentage">
+        <button type="button" id="go" onclick="myFunction()">Let See!</button> <br>
+        <below15>You are not allowed to get married!</below15> <br>
+        <mbelow20>99.6%</mbelow20>
+        <fbelow20>99.5%</fbelow20> <br>
+        <mbelow25>97.4%</mbelow25>
+        <fbelow25>95.3%</fbelow25> <br>
+        <mbelow30>83.2%</mbelow30>
+        <fbelow30>74%</fbelow30> <br>
+        <mbelow35>49.4%</mbelow35>
+        <fbelow35>37.4%</fbelow35> <br>
+        <mbelow40>28.7%</mbelow40>
+        <fbelow40>22.3%</fbelow40> <br>
+        <mbelow45>20.4%</mbelow45>
+        <fbelow45>16.6%</fbelow45> <br>
+        <mbelow50>16%</mbelow50>
+        <fbelow50>15.2%</fbelow50> <br>
+        <mover50>7.7%</mover50>
+        <fover50>7.6%</fover50> <br>
+        <script>
+            $(function() {
+                var showGraph = false;
+                $('#go').click(function() {
+                    if (showGraph) {
+                        $('table').hide();
+                        showCorrection = false;
+                    } else {
+                        $('table').show();
+                        showCorrection = true;
+                    }
+                });
+                $('table').hide();
+            })
+        </script>
+        <div> Trend of people getting marriage </div>
+        <div>
+            <table border="1">
 
-    <script>
-        $(function() { // Routine format; put all your jQuery initialisation inside
-            $('#go').click(function() { // Set the mouse click event hander for element "#calculate"
-                // Normal Javascript here
-                // Do whatever you want
-                var age = $('#age').val();
 
-                var percentage = age;
-                $('#percentage').val(percentage);
-            });
-        }); // Routine format; put all your jQuery initialisation inside
-    </script>
+
+                <tbody>
+                    <tr>
+                        <th rowspan="2" colspan="2" class="titlesvcol" id="statistical variables"></th>
+                        <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT">15歲及以上從未結婚的人口比例</th>
+                        <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_XFDH">15歲及以上從未結婚的人口比例（不包括外籍家庭傭工）</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_PCT" headers="RP_15_PROP_MARIT">百分比</th>
+                        <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_XFDH_PCT" headers="RP_15_PROP_MARIT_XFDH">百分比</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="2" class="titlecol" id="TIME">年</th>
+                        <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2006" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT">2006</th>
+                        <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2011" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT">2011</th>
+                        <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2016" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT">2016</th>
+                        <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2006_del" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT">2006</th>
+                        <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2011_del" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT">2011</th>
+                        <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2016_del" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT">2016</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="titlerow" id="SEX">性別</th>
+                        <th rowspan="1" colspan="1" class="titlerow" id="AGE">年齡 </th>
+                        <th rowspan="1" colspan="6" class="titleblank"></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="8" colspan="1" class="titlerow" id="SEX_2G_1">男</th>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_15-19" headers="SEX_2G_1">15 - 19</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_15-19"> 99.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_15-19"> 99.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_15-19"> 99.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_15-19"> 99.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_15-19"> 99.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_15-19"> 99.6</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_20-24" headers="SEX_2G_1">20 - 24</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_20-24"> 97.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_20-24"> 97.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_20-24"> 97.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_20-24"> 97.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_20-24"> 97.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_20-24"> 97.4</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_25-29" headers="SEX_2G_1">25 - 29</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_25-29"> 81.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_25-29"> 82.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_25-29"> 83.1</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_25-29"> 81.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_25-29"> 82.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_25-29"> 83.2</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_30-34" headers="SEX_2G_1">30 - 34</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_30-34"> 49.5</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_30-34"> 50.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_30-34"> 49.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_30-34"> 49.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_30-34"> 50.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_30-34"> 49.4</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_35-39" headers="SEX_2G_1">35 - 39</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_35-39"> 29.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_35-39"> 28.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_35-39"> 28.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_35-39"> 29.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_35-39"> 28.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_35-39"> 28.7</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_40-44" headers="SEX_2G_1">40 - 44</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_40-44"> 18.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_40-44"> 20.9</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_40-44"> 20.3</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_40-44"> 18.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_40-44"> 20.9</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_40-44"> 20.4</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_45-49" headers="SEX_2G_1">45 - 49</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_45-49"> 9.9</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_45-49"> 14.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_45-49"> 16.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_45-49"> 9.9</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_45-49"> 14.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_45-49"> 16.0</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_50-10000" headers="SEX_2G_1">50+</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_50-10000"> 5.5</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_50-10000"> 5.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_50-10000"> 7.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_1 AGE15OVER_8G_50-10000"> 5.5</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_1 AGE15OVER_8G_50-10000"> 5.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_1 AGE15OVER_8G_50-10000"> 7.7</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="8" colspan="1" class="titlerow" id="SEX_2G_2">女</th>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_15-19_del" headers="SEX_2G_2">15 - 19</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_15-19"> 99.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_15-19"> 99.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_15-19"> 99.5</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_15-19"> 99.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_15-19"> 99.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_15-19"> 99.5</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_20-24_del" headers="SEX_2G_2">20 - 24</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_20-24"> 92.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_20-24"> 94.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_20-24"> 94.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_20-24"> 93.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_20-24"> 95.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_20-24"> 95.3</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_25-29_del" headers="SEX_2G_2">25 - 29</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_25-29"> 67.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_25-29"> 69.3</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_25-29"> 70.9</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_25-29"> 68.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_25-29"> 71.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_25-29"> 74.0</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_30-34_del" headers="SEX_2G_2">30 - 34</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_30-34"> 35.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_30-34"> 37.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_30-34"> 36.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_30-34"> 34.3</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_30-34"> 38.4</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_30-34"> 37.4</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_35-39_del" headers="SEX_2G_2">35 - 39</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_35-39"> 22.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_35-39"> 22.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_35-39"> 22.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_35-39"> 21.2</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_35-39"> 22.3</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_35-39"> 22.3</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_40-44_del" headers="SEX_2G_2">40 - 44</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_40-44"> 16.5</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_40-44"> 17.1</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_40-44"> 16.3</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_40-44"> 15.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_40-44"> 16.5</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_40-44"> 16.6</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_45-49_del" headers="SEX_2G_2">45 - 49</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_45-49"> 11.9</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_45-49"> 14.0</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_45-49"> 15.5</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_45-49"> 11.3</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_45-49"> 13.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_45-49"> 15.2</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1" class="nwtitlerow" id="AGE15OVER_8G_50-10000_del" headers="SEX_2G_2">50+</th>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_50-10000"> 4.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_50-10000"> 5.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_50-10000"> 7.8</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2006 SEX_2G_2 AGE15OVER_8G_50-10000"> 4.7</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2011 SEX_2G_2 AGE15OVER_8G_50-10000"> 5.6</td>
+                        <td rowspan="1" colspan="1" class="data" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT CCYY_2016 SEX_2G_2 AGE15OVER_8G_50-10000"> 7.6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
 
 </body>
 
