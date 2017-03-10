@@ -3,16 +3,20 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Male</title>
-    <script src="echarts.min.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="coverstyle.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
-<body>
-
-    <div>How old are you?
-        <br><select id="age">
+<body id="genderstyle">
+    <div class="col-lg-4">
+        <img class="img-circle" src="http://www.freeiconspng.com/uploads/male-icon-4.jpg" alt="Male image" width="140" height="140">
+        <h2>How old are you?</h2>
+        <div><select id="age">
         <option value="choose">Choose below</option>
         <option value="none">0-15</option>
         <option value="15-19">15-19</option>
@@ -24,17 +28,22 @@
         <option value="45-49">45-49</option>
         <option value="50">50+</option>
         </select>
+        </div>
+        <br>
+        <div><button type="button" id="go" onclick="myFunction()" class="btn btn-sm btn-success">Check!</button> </div>
+        <p class="none" id="none">You are not allowed to get marry!</p>
+        <p class="Male 15-19" id="age15-19">99.6%</p>
+        <p class="Male 20-24" id="age20-24">97.4%</p>
+        <p class="Male 25-29" id="age25-29">83.2%</p>
+        <p class="Male 30-34" id="age30-34">49.4%</p>
+        <p class="Male 35-39" id="age35-39">28.7%</p>
+        <p class="Male 40-44" id="age40-44">20.4%</p>
+        <p class="Male 45-49" id="age45-49">16%</p>
+        <p class="Male 50" id="age50">7.7%</p>
     </div>
-    <button type="button" id="go" onclick="myFunction()">Let See!</button> <br>
-    <p class="none">You are not allowed to get married!</p>
-    <p class="Male 15-19">99.6%</p>
-    <p class="Male 20-24">97.4%</p>
-    <p class="Male 25-29">83.2%</p>
-    <p class="Male 30-34">49.4%</p>
-    <p class="Male 35-39">28.7%</p>
-    <p class="Male 40-44">20.4%</p>
-    <p class="Male 45-49">16%</p>
-    <p class="Male 50">7.7%</p>
+
+
+
     <script type="text/javascript">
         $(document).ready(function() {
             $('#go').click(function() {
@@ -164,24 +173,28 @@
             $('#data').hide();
         })
     </script>
-    <div> See the trend of people getting marriage in Hong Kong
-        <button type="button" id="see" onclick="myFunction()">Let See!</button></div>
-    <div id="data">
-        <table border="1">
+    <div>
+        <h3><span class="label label-default">See the trend of people getting marriage in Hong Kong</span></h3>
+        <br>
+        <button type="button" id="see" onclick="myFunction()" class="btn btn-sm btn-info">Let See!</button></div>
+    <br>
+
+    <div id="data" class="col-xs-12">
+        <table border="1" class="table table bordered">
 
 
 
             <tbody>
-                <tr>
+                <tr id="title">
                     <th rowspan="2" colspan="2" class="titlesvcol" id="statistical variables"></th>
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT">15歲及以上從未結婚的人口比例</th>
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_XFDH">15歲及以上從未結婚的人口比例（不包括外籍家庭傭工）</th>
                 </tr>
-                <tr>
+                <tr id="title">
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_PCT" headers="RP_15_PROP_MARIT">百分比</th>
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_XFDH_PCT" headers="RP_15_PROP_MARIT_XFDH">百分比</th>
                 </tr>
-                <tr>
+                <tr id="title">
                     <th rowspan="1" colspan="2" class="titlecol" id="TIME">年</th>
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2006" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT">2006</th>
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2011" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT">2011</th>
@@ -190,7 +203,7 @@
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2011_del" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT">2011</th>
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2016_del" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT">2016</th>
                 </tr>
-                <tr>
+                <tr id="title">
                     <th rowspan="1" colspan="1" class="titlerow" id="SEX">性別</th>
                     <th rowspan="1" colspan="1" class="titlerow" id="AGE">年齡 </th>
                     <th rowspan="1" colspan="6" class="titleblank"></th>
@@ -344,71 +357,12 @@
             </tbody>
         </table>
     </div>
-    <div id="main" style="width: 1200px;height:800px;"></div>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: '從未結婚人口比例'
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                data: ['2006', '2011', '2016']
-            },
-            toolbox: {
-                feature: {
-                    saveAsImage: {}
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['25歲', '30歲', '35歲', '40歲', '45歲', '50歲', '...']
-            }],
-            yAxis: [{
-                type: 'value'
-            }],
-            series: [{
-                name: '2006',
-                type: 'line',
-                stack: 'total',
-                areaStyle: {
-                    normal: {}
-                },
-                data: [81.4, 49.5, 29.2, 18.2, 9.9, 5.5, 0]
-            }, {
-                name: '2011',
-                type: 'line',
-                stack: 'total',
-                areaStyle: {
-                    normal: {}
-                },
-                data: [82.6, 50, 28.8, 20.9, 14.2, 5.8, 0]
-            }, {
-                name: '2016',
-                type: 'line',
-                stack: 'total',
-                areaStyle: {
-                    normal: {}
-                },
-                data: [83.1, 49.4, 28.7, 20.3, 16, 7.7, 0]
-            }, ]
-        };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
-
-
+    <nav>
+        <ul class="pager">
+            <li><a href="https://chungyin.github.io/homework4/male.html">Try again</a></li>
+            <li><a href="https://chungyin.github.io/homework4/female.html">See Female</a></li>
+        </ul>
+    </nav>
 </body>
 
 </html>

@@ -2,14 +2,22 @@
 <html>
 
 <head>
-    <title> homework4 Chung Yin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Female</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="coverstyle.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
-<body>
-
-    <div>How old are you?
-        <br><select id="age">
+<body id="genderstyle">
+    <div class="col-lg-4">
+        <img class="img-circle" src="http://www.freeiconspng.com/uploads/female-icon-23.png" alt="Female image" width="140" height="140">
+        <h2>How old are you?</h2>
+        <div>
+            <select>
         <option value="choose">Choose below</option>
         <option value="none">0-15</option>
         <option value="15-19">15-19</option>
@@ -21,18 +29,19 @@
         <option value="45-49">45-49</option>
         <option value="50">50+</option>
         </select>
+        </div>
+        <br>
+        <div><button type="button" id="go" onclick="myFunction()" class="btn btn-sm btn-success">Check</button> </div>
+        <p class="none" id="none">You are not allowed to get marry!</p>
+        <p class="Female 15-19" id="age15-19">99.5%</p>
+        <p class="Female 20-24" id="age20-24">95.3%</p>
+        <p class="Female 25-29" id="age25-29">74%</p>
+        <p class="Female 30-34" id="age30-34">37.4%</p>
+        <p class="Female 35-39" id="age35-39">22.3%</p>
+        <p class="Female 40-44" id="age40-44">16.6%</p>
+        <p class="Female 45-49" id="age45-49">15.2%</p>
+        <p class="Female 50" id="age50">7.6%</p>
     </div>
-    <button type="button" id="go" onclick="myFunction()">Check</button> <br>
-    <p class="none">You are not allowed to get married!</p>
-    <p class="Female 15-19">99.5%</p>
-    <p class="Female 20-24">95.3%</p>
-    <p class="Female 25-29">74%</p>
-    <p class="Female 30-34">37.4%</p>
-    <p class="Female 35-39">22.3%</p>
-    <p class="Female 40-44">16.6%</p>
-    <p class="Female 45-49">15.2%</p>
-    <p class="Female 50">7.6%</p>
-
     <script type="text/javascript" id="script">
         $(document).ready(function() {
             $('#go').click(function() {
@@ -163,24 +172,26 @@
             $('#data').hide();
         })
     </script>
-    <div> See the trend of people getting marriage in Hong Kong
-        <button type="button" id="see" onclick="myFunction()">Let See!</button></div>
-    <div id="data">
-        <table border="1">
+    <div>
+        <h3><span class="label label-default">See the trend of people getting marriage in Hong Kong</span></h3><br>
+        <button type="button" id="see" onclick="myFunction()" class="btn btn-sm btn-info">Let See!</button></div>
+    <br>
+    <div id="data" class="col-xs-12">
+        <table border="1" class="table table bordered">
 
 
 
             <tbody>
-                <tr>
+                <tr id="title">
                     <th rowspan="2" colspan="2" class="titlesvcol" id="statistical variables"></th>
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT">15歲及以上從未結婚的人口比例</th>
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_XFDH">15歲及以上從未結婚的人口比例（不包括外籍家庭傭工）</th>
                 </tr>
-                <tr>
+                <tr id="title">
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_PCT" headers="RP_15_PROP_MARIT">百分比</th>
                     <th rowspan="1" colspan="3" class="titlesvcol" id="RP_15_PROP_MARIT_XFDH_PCT" headers="RP_15_PROP_MARIT_XFDH">百分比</th>
                 </tr>
-                <tr>
+                <tr id="title">
                     <th rowspan="1" colspan="2" class="titlecol" id="TIME">年</th>
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2006" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT">2006</th>
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2011" headers="RP_15_PROP_MARIT RP_15_PROP_MARIT_PCT">2011</th>
@@ -189,7 +200,7 @@
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2011_del" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT">2011</th>
                     <th rowspan="1" colspan="1" class="titlecol" id="CCYY_2016_del" headers="RP_15_PROP_MARIT_XFDH RP_15_PROP_MARIT_XFDH_PCT">2016</th>
                 </tr>
-                <tr>
+                <tr id="title">
                     <th rowspan="1" colspan="1" class="titlerow" id="SEX">性別</th>
                     <th rowspan="1" colspan="1" class="titlerow" id="AGE">年齡 </th>
                     <th rowspan="1" colspan="6" class="titleblank"></th>
@@ -344,7 +355,12 @@
         </table>
     </div>
 
-
+    <nav>
+        <ul class="pager">
+            <li><a href="https://chungyin.github.io/homework4/female.html">Try again</a></li>
+            <li><a href="https://chungyin.github.io/homework4/male.html">See Male</a></li>
+        </ul>
+    </nav>
 
 </body>
 

@@ -1,0 +1,80 @@
+            .innercover {
+                background-color: black;
+                text-align: center;
+                width: auto;
+                height: 400px;
+                padding-top: 100px;
+                color: white;
+            }
+            
+            #genderstyle {
+                margin: 20px 20px 20px 20px;
+                text-align: center;
+            }
+            
+            #title {
+                background-color: lightyellow;
+                color: gray;
+            }
+            
+            #SEX_2G_1 {
+                background-color: lightyellow;
+                color: gray;
+            }
+            
+            #SEX_2G_2 {
+                background-color: lightyellow;
+                color: gray;
+            }
+            
+            #none {
+                color: red;
+                font-size: 100px;
+            }
+            
+            #age15-19 {
+                color: green;
+                font-size: 90px;
+            }
+            
+            #age20-24 {
+                color: limegreen;
+                font-size: 80px;
+            }
+            
+            #age25-29 {
+                color: lawngreen;
+                font-size: 70px;
+            }
+            
+            #age30-34 {
+                color: greenyellow;
+                font-size: 60px;
+            }
+            
+            #age35-39 {
+                color: yellowgreen;
+                font-size: 50px;
+            }
+            
+            #age40-44 {
+                color: orange;
+                font-size: 40px;
+            }
+            
+            #age45-49 {
+                color: darkorange;
+                font-size: 30px;
+            }
+            
+            #age50 {
+                color: orangered;
+                font-size: 20px;
+            }
+            
+            select {
+                border: black;
+                background-color: white;
+                width: 200px;
+                height: 50px;
+            }
